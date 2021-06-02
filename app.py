@@ -120,4 +120,4 @@ def home():
     }]
     return jsonify(result)
 
-app.run()
+#app.run()
