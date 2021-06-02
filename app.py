@@ -52,7 +52,7 @@ def home():
     username = request.args['username']
     soupUser = downloadUserPage(username)
     soupRecent = downloadRecentActivity(username, 0)
-    maxPage = int(soupRecent(text=re.compile('max_page'))[0][12:14])
+    maxPage = int(soupRecent(text=re.compile('max_page'))[0][12:soupRecent(text=re.compile('max_page'))[0].find(',')])
     print(maxPage)
     # tds = trs[0].find_all('td')
     #print(tds[0].text)
@@ -120,4 +120,4 @@ def home():
     }]
     return jsonify(result)
 
-#app.run()
+app.run()
